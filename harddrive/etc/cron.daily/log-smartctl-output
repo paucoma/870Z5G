@@ -1,0 +1,6 @@
+#!/bin/bash
+# Logs the output of the smartctl Attributes S.M.A.R.T. monitoring
+# requires package smartmontools to be installed
+
+smartctl -A /dev/sda >> /etc/log/SMART.log
+

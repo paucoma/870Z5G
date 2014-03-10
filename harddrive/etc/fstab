@@ -1,0 +1,16 @@
+# 
+# /etc/fstab: static file system information
+#
+# <file system>	<dir>	<type>	<options>	<dump>	<pass>
+# /dev/sdb7
+UUID=d6c7e3e5-3981-4071-82d9-e0e8737fa0f4	/         	ext4      	rw,discard,relatime,data=ordered	0 1
+
+# /dev/sdb8
+UUID=e62df827-1767-4a1e-9dc9-9ec24e1aaf5e	/home     	ext4      	rw,discard,relatime,data=ordered	0 2
+
+# /dev/sdb2 LABEL=SYSTEM
+UUID=8646-0A66      	/boot/efi 	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
+
+# tmp ram filesystem for compiling
+tmpfs	/scratch	tmpfs	rw,relatime	0  0
+
