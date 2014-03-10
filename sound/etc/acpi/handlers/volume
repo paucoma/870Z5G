@@ -3,11 +3,11 @@ step=5
 
 case $1 in
   -) 
-    amixer -c 1 set Master $step-
+    amixer set Master $step-
     logger 'Volume down'
     ;;
   +) 
-    amixer -c 1 set Master $step+
+    amixer set Master $step+
     logger 'Volume up'
     ;;
 esac
