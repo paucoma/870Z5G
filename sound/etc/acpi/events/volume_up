@@ -1,2 +1,2 @@
 event=button/volumeup
-action=sudo -u paui /etc/acpi/handlers/volume +
+action=/etc/acpi/handlers/volume +
