@@ -1,0 +1,3 @@
+[submodule "wiki"]
+	path = wiki
+	url = https://github.com/paucoma/870Z5G.wiki.git
