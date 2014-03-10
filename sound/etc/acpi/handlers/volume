@@ -1,0 +1,13 @@
+#!/bin/sh
+step=5
+
+case $1 in
+  -) 
+    amixer set Master $step-
+    logger 'Volume down'
+    ;;
+  +) 
+    amixer set Master $step+
+    logger 'Volume up'
+    ;;
+esac

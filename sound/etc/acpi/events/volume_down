@@ -1,0 +1,2 @@
+event=button/volumedown
+action=sudo -u paui /etc/acpi/handlers/volume -
