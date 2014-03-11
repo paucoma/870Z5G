@@ -1,0 +1,18 @@
+[Unit]
+Description=Custom Keymap scancodes
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+
+# Fn+F9 : kbd backlight down
+ExecStart=/usr/bin/setkeycodes e017 200
+# Fn+F10 : kbd backlight up
+ExecStart=/usr/bin/setkeycodes e016 201 
+# Fn Lock : Function Key Lock ON 
+ExecStart=/usr/bin/setkeycodes e029 203 
+# Fn Lock : Function Key Lock OFF
+ExecStart=/usr/bin/setkeycodes e028 204 
+
+[Install]
+WantedBy=multi-user.target
