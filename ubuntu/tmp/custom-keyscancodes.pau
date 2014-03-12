@@ -1,0 +1,58 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          custom-keyscancodes
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Setting KeyCodes to unmapped keys
+# Description:       This script mainly uses setkeycodes to map unmapped keyboard codes
+#                    Should be placed in /etc/init.d/
+### END INIT INFO
+
+start() {
+    # Fn+F9 : kbd backlight down
+    /usr/bin/setkeycodes e017 210
+    # Fn+F10 : kbd backlight up
+    /usr/bin/setkeycodes e016 211 
+    # Fn Lock : Function Key Lock ON 
+    /usr/bin/setkeycodes e028 212 
+    # Fn Lock : Function Key Lock OFF
+    /usr/bin/setkeycodes e029 213    
+}
+
+stop() {
+    # Setting the keycodes back to zero (unmapped)
+    /usr/bin/setkeycodes e017 0 
+    /usr/bin/setkeycodes e016 0 
+    /usr/bin/setkeycodes e028 0 
+    /usr/bin/setkeycodes e029 0 
+}
+
+## Check to see if we are running as root first.
+## Found at http://www.cyberciti.biz/tips/shell-root-user-check-script.html
+if [ "$(id -u)" != "0" ]; then
+    echo "This script must be run as root" 1>&2
+    exit 1
+fi
+
+case "$1" in
+    start)
+        start
+        echo "$0 started"
+        exit 0
+        ;;
+    restart|reload|force-reload)
+        echo "Error: argument '$1' not supported" >&2
+        exit 3
+        ;;
+    stop)
+        stop
+        echo "$0 stoped"
+        exit 0
+        ;;
+    *)
+        echo "Usage: $0 start|stop" >&2
+        exit 3
+        ;;
+esac
